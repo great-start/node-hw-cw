@@ -31,7 +31,7 @@ const onlineUsers = [
     {name: "Kolya", age: 40, city: "Lviv"}
 ]
 const inPersonUsers = [
-    {name: "Andrii", age: 15, city: "Lviv"},
+    {name: "Vasya", age: 15, city: "Rivne"},
     {name: "Tolya", age: 23, city: "Charkiv"},
     {name: "Sanya", age: 42, city: "Odessa"},
     {name: "Anya", age: 35, city: "Broklin"},
@@ -48,20 +48,23 @@ inPersonUsers.map(user => {
     inPersonUsersData += `Name: ${user.name} \n Age: ${user.age} \n City: ${user.city}\n\n`
 })
 
-fs.writeFile(path.join(__dirname, 'main', 'online', 'onlineUsers.txt'), onlineUsersData,(err) => {
+fs.writeFile(path.join(__dirname, 'main', 'online', 'users.txt'), onlineUsersData,(err) => {
     if (err) {
         console.log(err);
         throw err;
     }
 } );
 
-fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'onlineUsers.txt'), inPersonUsersData, (err) => {
+fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'users.txt'), inPersonUsersData, (err) => {
     if (err) {
         console.log(err);
         throw err;
     }
 });
 
+
 function changeUsers() {
-    fs.rename(path.join(__dirname, 'main', 'online', 'users'));
+
 }
+
+changeUsers();

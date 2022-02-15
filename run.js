@@ -2,8 +2,6 @@
 // Створити основну папку (main), в яку покласти дві інші папки: перша - online, друга - inPerson
 // Потім створити в вашому головному файлі (для прикладу app.js) два масиви з обєктами user ({. name: "Andrii", age: 22, city: "Lviv" }),  відповідно перший - onlineUsers, другий - inPersonUsers;
 // і створити файли txt в папках (online, inPerson) в яких як дату покласти юзерів з ваших масивів, але щоб ваш файл виглядав як NAME: ім'я з обєкту і т.д і всі пункти з нового рядка.
-//
-// Коли ви це виконаєте напишіть функцію яка буде міняти місцями юзерів з одного файлу і папки в іншу. (ті, що були в папці inPerson будуть в папці online)
 
 
 const path = require('path');
@@ -48,14 +46,14 @@ inPersonUsers.map(user => {
     inPersonUsersData += `Name: ${user.name} \n Age: ${user.age} \n City: ${user.city}\n\n`
 })
 
-fs.writeFile(path.join(__dirname, 'main', 'online', 'users.txt'), onlineUsersData,(err) => {
+fs.writeFile(path.join(__dirname, 'main', 'online', 'users2.txt'), onlineUsersData,(err) => {
     if (err) {
         console.log(err);
         throw err;
     }
 } );
 
-fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'users.txt'), inPersonUsersData, (err) => {
+fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'users1.txt'), inPersonUsersData,'utf8',(err) => {
     if (err) {
         console.log(err);
         throw err;
@@ -63,8 +61,37 @@ fs.writeFile(path.join(__dirname, 'main', 'inPerson', 'users.txt'), inPersonUser
 });
 
 
-function changeUsers() {
+// Коли ви це виконаєте напишіть функцію яка буде міняти місцями юзерів з одного файлу і папки в іншу. (ті, що були в папці inPerson будуть в папці online)
+const path1 = path.join(__dirname, 'main', 'inPerson', 'users1.txt');
+const path2 = path.join(__dirname, 'main', 'online', 'users2.txt');
 
+const changeUsers = () => {
+    fs.readFile(path1,'utf8',(err, data) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        fs.writeFile(path2, data, 'utf8',(err) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            }
+        });
+    })
+    fs.readFile(path2,'utf8',(err, data) => {
+        if (err) {
+            console.log(err);
+            throw err;
+        }
+        fs.writeFile(path1, data, 'utf8',(err) => {
+            if (err) {
+                console.log(err);
+                throw err;
+            }
+        });
+    })
 }
 
 changeUsers();
+
+

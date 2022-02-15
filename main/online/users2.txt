@@ -1,6 +1,6 @@
-Name: Andrii 
+Name: Vasya 
  Age: 15 
- City: Lviv
+ City: Rivne
 
 Name: Tolya 
  Age: 23 

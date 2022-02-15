@@ -7,19 +7,19 @@
 const path = require('path');
 const fs = require('fs');
 
-// fs.mkdir(path.join(__dirname, 'main', 'online'), {recursive: true},(err) => {
-//     if (err) {
-//         console.log(err);
-//         throw err;
-//     }
-// });
-//
-// fs.mkdir(path.join(__dirname, 'main', 'inPerson'), {recursive: true}, (err) => {
-//     if (err) {
-//         console.log(err);
-//         throw err;
-//     }
-// });
+fs.mkdir(path.join(__dirname, 'main', 'online'), {recursive: true},(err) => {
+    if (err) {
+        console.log(err);
+        throw err;
+    }
+});
+
+fs.mkdir(path.join(__dirname, 'main', 'inPerson'), {recursive: true}, (err) => {
+    if (err) {
+        console.log(err);
+        throw err;
+    }
+});
 
 const onlineUsers = [
     {name: "Andrii", age: 22, city: "Lviv"},

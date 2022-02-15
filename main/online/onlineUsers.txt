@@ -1,0 +1,20 @@
+Name: Andrii 
+ Age: 22 
+ City: Lviv
+
+Name: Vanya 
+ Age: 23 
+ City: Kyiv
+
+Name: Petya 
+ Age: 12 
+ City: Odessa
+
+Name: Anya 
+ Age: 35 
+ City: Broklin
+
+Name: Kolya 
+ Age: 40 
+ City: Lviv
+

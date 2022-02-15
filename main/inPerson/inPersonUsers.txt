@@ -1,0 +1,20 @@
+Name: Andrii 
+ Age: 15 
+ City: Lviv
+
+Name: Tolya 
+ Age: 23 
+ City: Charkiv
+
+Name: Sanya 
+ Age: 42 
+ City: Odessa
+
+Name: Anya 
+ Age: 35 
+ City: Broklin
+
+Name: Fedya 
+ Age: 60 
+ City: Chernigiv
+

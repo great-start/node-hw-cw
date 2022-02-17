@@ -24,6 +24,16 @@
             <div>City: <span>{{this.city}}</span></div>
         </div>
     {{/each}}
+    {{#each filteredUsers}}
+        <div style="background: lightgray; margin: 20px; padding: 10px; border-radius: 5px; font-size: 20px">
+            <div>Firstname: <span>{{this.firstName}}</span></div>
+            <div>Lastname: <span>{{this.lastName}}</span></div>
+            <div>Email: <span>{{this.email}}</span></div>
+            <div>Password: <span>{{this.password}}</span></div>
+            <div>Age: <span>{{this.age}}</span></div>
+            <div>City: <span>{{this.city}}</span></div>
+        </div>
+    {{/each}}
 </div>
 
 </body>

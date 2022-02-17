@@ -1,3 +1,9 @@
+// Необхідно розширити ваше ДЗ:
+//     - додайте ендпоінт signIn який буде приймати email і password і якщо все вірно то редірект на сторінку цього
+//
+// * хто хоче складніше реалізуйте видалення користувача. Кнопка повинна знаходитись на сторінці з інфою про одного юзера. Після видалення редірект на "/users"
+
+
 
 
 const path = require('path');
@@ -25,37 +31,32 @@ app.get('/login', (req, res) => {
     res.render('login');
 })
 
-app.post('/login', (req, res) => {
-    if (!users.length) {
-        users.push(req.body);
-        res.redirect('/users')
-    } else {
+app.post('/login', ({ body}, res) => {
         for (const user of users) {
-            if (user.email === req.body.email) {
+            if (user.email === body.email) {
                 return res.render('notFound', {message: 'User has already exist'});
             }
         }
-        users.push(req.body);
+        users.push(body);
         res.redirect('/users');
-    }
 })
 
 
 // 2. /users просто сторінка з усіма юзерами, але можна по квері параметрам їх фільтрувати по age і city
-app.get('/users', (req, res) => {
-    if (req.query.age || req.query.city) {
+app.get('/users', ({ query}, res) => {
+    if (query.age || query.city) {
         const filteredUsers = users.filter(user => {
-            if (req.query.age && req.query.city) {
-                return user.age === req.query.age && user.city === req.query.city;
+            if (query.age && query.city) {
+                return user.age === query.age && user.city === query.city;
             } else {
-                return user.age === req.query.age || user.city === req.query.city;
+                return user.age === query.age || user.city === query.city;
             }
         });
-        if (!filteredUsers.length) return res.render('notFound',{message: 'No users found'})
+        if (!filteredUsers.length) return res.render('notFound', {message: 'No users found'})
         return res.render('users', {users: filteredUsers})
     }
     res.render('users', {users});
-})
+});
 
 
 // 3. /user/:id сторінка з інфою про одного юзера

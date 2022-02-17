@@ -26,18 +26,13 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    if (!users.length) {
-        users.push(req.body);
-        res.redirect('/users')
-    } else {
-        for (const user of users) {
-            if (user.email === req.body.email) {
-                return res.render('notFound', {message: 'User has already exist'});
-            }
+    for (const user of users) {
+        if (user.email === req.body.email) {
+            return res.render('notFound', {message: 'User has already exist'});
         }
-        users.push(req.body);
-        res.redirect('/users');
     }
+    users.push(req.body);
+    res.redirect('/users');
 })
 
 

@@ -49,13 +49,20 @@ app.post('/login', (req, res) => {
 app.get('/users', (req, res) => {
     if (req.query.age || req.query.city) {
         const filteredUsers = users.filter(user => {
-
-            return user.age === req.query.age && user.city === req.query.city;
+            if (req.query.age && req.query.city) {
+                return user.age === req.query.age && user.city === req.query.city;
+            } else {
+                return user.age === req.query.age || user.city === req.query.city;
+            }
         });
         return res.render('users', {filteredUsers})
     }
     res.render('users', {users});
 })
+
+app.get('/users/:userId', (req, res) => {
+    const
+});
 
 
 app.get('/notFound', (req, res) =>  {

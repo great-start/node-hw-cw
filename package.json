@@ -1,6 +1,15 @@
 {
-  "name": "node-hw-cw",
+  "name": "hw-cw",
   "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2"
   }
 }

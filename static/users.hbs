@@ -5,20 +5,25 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
 <div style="margin: 20px; display: flex; gap: 10px">
-    <div style="background: lightgray; margin: 20px; padding: 10px; border-radius: 5px">
-        {{#each users}}
-            <div>Firstname: {{this.firstName}}</div>
-            <div>Lastname: {{this.lastName}}</div>
-            <div>Email: {{this.email}}</div>
-            <div>Password{{this.password}}</div>
-            <div>Age: {{this.age}}</div>
-            <div>City: {{this.city}}</div>
-        {{/each}}
-    </div>
+    {{#each users}}
+        <div style="background: lightgray; margin: 20px; padding: 10px; border-radius: 5px; font-size: 20px">
+            <div>Firstname: <span>{{this.firstName}}</span></div>
+            <div>Lastname: <span>{{this.lastName}}</span></div>
+            <div>Email: <span>{{this.email}}</span></div>
+            <div>Password: <span>{{this.password}}</span></div>
+            <div>Age: <span>{{this.age}}</span></div>
+            <div>City: <span>{{this.city}}</span></div>
+        </div>
+    {{/each}}
 </div>
 
 </body>

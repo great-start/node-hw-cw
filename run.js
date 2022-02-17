@@ -10,7 +10,7 @@
 
 const path = require('path');
 const express = require('express');
-// const hbs = require('express-handlebars');
+const hbs = require('express-handlebars');
 const {engine} = require("express-handlebars");
 
 const app = express();
@@ -20,6 +20,8 @@ app.set('view engine', '.hbs');
 app.engine('.hbs', engine({defaultLayout: false}));
 app.set('views', path.join(__dirname, 'static'));
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 // 1. /login, поля які треба відрендерити в файлі hbs: firstName, lastName, email(унікальне поле), password, age, city
@@ -32,13 +34,22 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    console.log(req.body);
+    users.forEach(user => {
+        if (user.email === req.body.email) {
+            console.log('equal');
+            res.redirect('/notFound');
+        }
+    })
     users.push(req.body);
-    res.redirect('users');
+    res.redirect('/users');
 })
 
 app.get('/users', (req, res) => {
     res.render('users', {users});
+})
+
+app.get('/notFound', (req, res) =>  {
+    res.render('notFound');
 })
 
 

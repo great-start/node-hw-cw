@@ -1,10 +1,4 @@
 
-// 2. /users просто сторінка з усіма юзерами, але можна по квері параметрам їх фільтрувати по age і city
-// 3. /user/:id сторінка з інфою про одного юзера
-//
-// 4. зробити якщо не відпрацюють ендпоінти то на сторінку notFound редірект
-
-
 
 const path = require('path');
 const express = require('express');
@@ -46,6 +40,8 @@ app.post('/login', (req, res) => {
     }
 })
 
+
+// 2. /users просто сторінка з усіма юзерами, але можна по квері параметрам їх фільтрувати по age і city
 app.get('/users', (req, res) => {
     if (req.query.age || req.query.city) {
         const filteredUsers = users.filter(user => {
@@ -55,17 +51,25 @@ app.get('/users', (req, res) => {
                 return user.age === req.query.age || user.city === req.query.city;
             }
         });
+        if (!filteredUsers.length) return res.render('notFound',{message: 'No users found'})
         return res.render('users', {filteredUsers})
     }
     res.render('users', {users});
 })
 
+
+// 3. /user/:id сторінка з інфою про одного юзера
 app.get('/users/:userId', (req, res) => {
-    const
+    const {userId} = req.params;
+    if (users[userId - 1]) {
+        return res.json(users[userId - 1]);
+    }
+    res.render('notFound',{message: 'User not found'});
 });
 
 
-app.get('/notFound', (req, res) =>  {
+// 4. зробити якщо не відпрацюють ендпоінти то на сторінку notFound редірект
+app.use((req, res) =>  {
     res.render('notFound', {message: 'Page not found'});
 })
 

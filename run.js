@@ -52,7 +52,7 @@ app.get('/users', (req, res) => {
             }
         });
         if (!filteredUsers.length) return res.render('notFound',{message: 'No users found'})
-        return res.render('users', {filteredUsers})
+        return res.render('users', {users: filteredUsers})
     }
     res.render('users', {users});
 })

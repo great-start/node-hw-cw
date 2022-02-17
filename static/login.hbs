@@ -20,19 +20,16 @@
         }
     </style>
 </head>
-<body>
-
 <div>
-    <form action="" method="post" class="form">
-        <label>FirstName: <input type="text"></label>
-        <label>LastName: <input type="text"></label>
-        <label>Email: <input type="email"></label>
-        <label>Password: <input type="text"></label>
-        <label>Age: <input type="text"></label>
-        <label>City: <input type="text"></label>
+    <form action="/login" method="post" class="form">
+        <label>FirstName: <input type="text"  name="firstName"></label>
+        <label>LastName: <input type="text" name="lastName"></label>
+        <label>Email: <input type="email" name="email"></label>
+        <label>Password: <input type="text" name="password"></label>
+        <label>Age: <input type="text" name="age"></label>
+        <label>City: <input type="text" name="city"></label>
         <button>Send</button>
     </form>
 </div>
-
 </body>
 </html>

@@ -32,14 +32,14 @@ app.get('/login', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    users.push(res.body);
-    app.render('/users');
+    console.log(req.body);
+    users.push(req.body);
+    res.redirect('users');
 })
 
 app.get('/users', (req, res) => {
-    res.render('/users', {users});
+    res.render('users', {users});
 })
-
 
 
 app.listen(5200, () => {

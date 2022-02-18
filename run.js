@@ -42,6 +42,23 @@ app.post('/login', ({ body}, res) => {
 })
 
 
+// -------------------------------------------- classwork Task ----------------------------------------------------
+app.get('/signIn',(req, res) => {
+    res.render('signIn');
+})
+
+app.post('/signIn', ({ body}, res) => {
+    const user = users.find(user => {
+        return body.email === user.email && body.pass === user.pass
+    })
+    if (!user) {
+        return res.render('notFound',{message: 'Incorrect password or email'})
+    }
+    return res.json(user);
+});
+// --------------------------------------------------------------------------------------------------------------------
+
+
 // 2. /users просто сторінка з усіма юзерами, але можна по квері параметрам їх фільтрувати по age і city
 app.get('/users', ({ query}, res) => {
     if (query.age || query.city) {

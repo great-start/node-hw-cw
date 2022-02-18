@@ -19,11 +19,12 @@
             <div>Firstname: <span>{{this.firstName}}</span></div>
             <div>Lastname: <span>{{this.lastName}}</span></div>
             <div>Email: <span>{{this.email}}</span></div>
-            <div>Password: <span>{{this.password}}</span></div>
+            <div>Password: <span>{{this.pass}}</span></div>
             <div>Age: <span>{{this.age}}</span></div>
             <div>City: <span>{{this.city}}</span></div>
-            <form action="delete/{{this.firstName}}" method="post">
-                <button value="{{this.email}}" name="delete">DELETE</button>
+            <div>ID: <span>{{this.id}}</span></div>
+            <form action="delete" method="post">
+                <button value="{{this.id}}" name="deleteId">DELETE</button>
             </form>
         </div>
     {{/each}}

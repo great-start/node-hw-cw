@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .user {
+            margin: 20px;
+            padding: 10px;
+            background: aliceblue;
+            font-size: 32px;
+        }
+        span {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="user">
+        <div>Firstname: <span>{{user.firstName}}</span></div>
+        <div>Lastname: <span>{{user.lastName}}</span></div>
+        <div>Email: <span>{{user.email}}</span></div>
+        <div>Password: <span>{{user.pass}}</span></div>
+        <div>Age: <span>{{user.age}}</span></div>
+        <div>City: <span>{{user.city}}</span></div>
+    </div>
+
+</body>
+</html>

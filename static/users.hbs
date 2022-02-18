@@ -22,6 +22,9 @@
             <div>Password: <span>{{this.password}}</span></div>
             <div>Age: <span>{{this.age}}</span></div>
             <div>City: <span>{{this.city}}</span></div>
+            <form action="delete/{{this.firstName}}" method="post">
+                <button value="{{this.email}}" name="delete">DELETE</button>
+            </form>
         </div>
     {{/each}}
 </div>

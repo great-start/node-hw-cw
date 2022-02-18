@@ -56,6 +56,22 @@ app.post('/signIn', ({ body}, res) => {
     }
     return res.json(user);
 });
+
+app.post('/delete/:firstName', (req, res) => {
+    console.log('delete');
+    console.log(req.body);
+    res.render('notFound', {message: 'Delete User'})
+})
+
+// --------------------------------------------- classwork task delete ------------------------------------------------
+
+
+
+
+
+
+
+
 // --------------------------------------------------------------------------------------------------------------------
 
 

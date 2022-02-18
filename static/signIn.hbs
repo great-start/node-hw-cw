@@ -5,12 +5,22 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        form {
+            margin: 30px;
+            padding: 10px;
+            font-size: 20px;
+        }
+        div {
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
 
 <form action="signIn" method="post">
-    <div>Email: <input type="text" name="email" placeholder="email"></div>
-    <div>Password: <input type="text" name="pass" placeholder="password"></div>
+    <div><label>Email: <input type="text" name="email" placeholder="email"></label></div>
+    <div><label>Password: <input type="text" name="pass" placeholder="password"></label></div>
     <button>Submit</button>
 </form>
 

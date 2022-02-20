@@ -1,19 +1,18 @@
 const {Router} = require('express');
-const users = require('./users.router');
+const baseRoute = Router();
+const usersRouter = require('./users.router');
 const loginRouter = require('./login.router');
 const sighInRouter = require('./signIn.router');
 const deleteRouter = require('./delete.router');
+const notFoundPageControllers = require('../controllers/notFoundPage.controllers');
 
-const baseRoute = Router();
 
-baseRoute.use('/users', users);
+baseRoute.use('/users', usersRouter);
 baseRoute.use('/login', loginRouter);
 baseRoute.use('/signIn', sighInRouter);
 baseRoute.use('/delete', deleteRouter);
+baseRoute.use(notFoundPageControllers.renderPage);
 
-baseRoute.use((req, res) => {
-    res.render('notFound', {message: 'Page not found'});
-});
 
 module.exports = baseRoute;
 

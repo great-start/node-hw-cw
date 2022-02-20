@@ -1,13 +1,14 @@
-const usersData = require("../data/users");
+const users = require("../data/users");
 
 
 class SignInControllers {
-    renderPage(req, res) {
+
+    renderPage (req, res) {
         res.render('signIn');
     }
 
-    singInAction({body}, res) {
-        const user = usersData.find(user => {
+    singInAction ({body}, res) {
+        const user = users.find(user => {
             return body.email === user.email && body.pass === user.pass;
         });
 
@@ -16,8 +17,8 @@ class SignInControllers {
             return;
         }
 
-        const userId = usersData.findIndex(user => user.email === body.email);
-        res.redirect(`/users/${userId + 1}`);
+        const userId = users.findIndex(user => user.email === body.email);
+        res.redirect(`users/${userId + 1}`);
     }
 }
 

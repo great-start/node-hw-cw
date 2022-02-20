@@ -1,14 +1,9 @@
 const {Router} = require('express');
-const users = require('../data/users');
-
 const deleteRouter = Router();
+const deleteControllers = require('../controllers/delete.controllers');
 
 
-deleteRouter.post('/', ({body}, res) => {
-    const userIndex = users.findIndex(user => user.id === Number(body.deleteId));
-    users.splice(userIndex, 1);
-    res.redirect('users');
-});
+deleteRouter.post('/', deleteControllers.deleteSingleUser);
 
 
 module.exports = deleteRouter;

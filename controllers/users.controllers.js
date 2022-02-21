@@ -1,5 +1,4 @@
-const users = require("../data/users");
-
+const users = require('../data/users');
 
 class UsersControllers {
 
@@ -29,7 +28,12 @@ class UsersControllers {
 
         res.render('notFound', {message: 'User not found'});
     }
-}
 
+    deleteSingleUser ({params}, res) {
+        const userIndex = users.findIndex(user => user.id === Number(params.userId));
+        users.splice(userIndex, 1);
+        res.redirect('/users');
+    }
+}
 
 module.exports = new UsersControllers();

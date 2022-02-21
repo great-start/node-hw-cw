@@ -23,8 +23,8 @@
             <div>Age: <span>{{this.age}}</span></div>
             <div>City: <span>{{this.city}}</span></div>
             <div>ID: <span>{{this.id}}</span></div>
-            <form action="delete" method="post">
-                <button value="{{this.id}}" name="deleteId">DELETE</button>
+            <form action="users/{{this.id}}" method="post">
+                <button>DELETE</button>
             </form>
         </div>
     {{/each}}

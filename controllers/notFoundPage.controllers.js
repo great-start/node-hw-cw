@@ -5,5 +5,4 @@ class NotFoundPageControllers {
     }
 }
 
-
 module.exports = new NotFoundPageControllers();
